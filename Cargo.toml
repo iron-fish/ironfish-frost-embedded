@@ -6,7 +6,9 @@ name = "ironfish-frost-embedded"
 version = "0.1.0"
 
 [dependencies]
-embedded-alloc = "0.5.1"
+embedded-alloc = { git = "https://github.com/rust-embedded/embedded-alloc.git", rev = "4f472dc" }
+hex = { version = "0.4", default-features = false, features = ["alloc"] }
+
 cortex-m-rt = "0.6.10"
 cortex-m-semihosting = "0.3.3"
 cortex-m = { version = "0.7.6", features = ["critical-section-single-core"]}
@@ -15,9 +17,9 @@ rand = { version = "0.8.3", features = ["small_rng", "getrandom"], default-featu
 ironfish-frost = { path = "../ironfish-frost", default-features = false, features = ["dkg"]}
 
 
+panic-semihosting = { version = "0.6.0", features = ["exit"] }
+# panic-halt = "0.2.0"
 
-
-panic-halt = "0.2.0"
 
 # Uncomment for the panic example.
 # panic-itm = "0.4.1"
