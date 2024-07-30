@@ -1,14 +1,22 @@
 [package]
-authors = ["{{authors}}"]
+authors = ["joe@iflabs.network"]
 edition = "2018"
 readme = "README.md"
-name = "{{project-name}}"
+name = "ironfish-frost-embedded"
 version = "0.1.0"
 
 [dependencies]
-cortex-m = "0.6.0"
+embedded-alloc = "0.5.1"
 cortex-m-rt = "0.6.10"
 cortex-m-semihosting = "0.3.3"
+cortex-m = { version = "0.7.6", features = ["critical-section-single-core"]}
+getrandom = { version = "0.2", features = ["custom"] }
+rand = { version = "0.8.3", features = ["small_rng", "getrandom"], default-features = false }
+ironfish-frost = { path = "../ironfish-frost", default-features = false, features = ["dkg"]}
+
+
+
+
 panic-halt = "0.2.0"
 
 # Uncomment for the panic example.
@@ -24,11 +32,6 @@ panic-halt = "0.2.0"
 # features = ["stm32f303", "rt"]
 # version = "0.7.1"
 
-# this lets you use `cargo fix`!
-[[bin]]
-name = "{{project-name}}"
-test = false
-bench = false
 
 [profile.release]
 codegen-units = 1 # better optimizations
