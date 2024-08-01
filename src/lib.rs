@@ -41,10 +41,10 @@ pub fn custom_getrandom(buf: &mut [u8]) -> Result<(), Error> {
 register_custom_getrandom!(custom_getrandom);
 
 #[global_allocator]
-static HEAP: Heap = Heap::empty();
+pub static HEAP: Heap = Heap::empty();
 
 pub fn init_heap() {
-    const HEAP_SIZE: usize = 25000;
+    const HEAP_SIZE: usize = 12300;
     static mut HEAP_MEM: [MaybeUninit<u8>; HEAP_SIZE] = [MaybeUninit::uninit(); HEAP_SIZE];
     unsafe { HEAP.init(HEAP_MEM.as_ptr() as usize, HEAP_SIZE) }
 }

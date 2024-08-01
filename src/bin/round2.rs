@@ -5,7 +5,7 @@ use cortex_m_rt::entry;
 
 use cortex_m_semihosting::hprintln;
 use ironfish_frost::{dkg::{round1::PublicPackage, round2}, participant::Secret};
-use ironfish_frost_embedded::init_heap;
+use ironfish_frost_embedded::{init_heap, HEAP};
 use rand::rngs::OsRng;
 
 
@@ -29,6 +29,7 @@ fn main() -> ! {
         rng,
     )
     .unwrap();
+    hprintln!("Heap used {}", HEAP.used()).unwrap();
     hprintln!("encrypted_secret_package {:?}", encrypted_secret_package).unwrap();
     hprintln!("package {:?}", round2_public_packages.serialize()).unwrap();
 
