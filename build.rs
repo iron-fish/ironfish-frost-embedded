@@ -40,4 +40,11 @@ fn main() {
 
     // Set the linker script to the one provided by cortex-m-rt.
     println!("cargo:rustc-link-arg=-Tlink.x");
+
+    // let seed = env::var("RANDOM_SEED").unwrap_or_else(|_| "3".to_string());
+    // let seed: u32 = seed.parse().unwrap_or(0);
+
+    // // Write the seed to a file
+    // let mut file = File::create("src/seed.rs").unwrap();
+    // writeln!(file, "pub const SEED: u32 = {};", seed).unwrap();
 }
