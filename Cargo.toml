@@ -16,8 +16,8 @@ getrandom = { version = "0.2", features = ["custom"] }
 rand = { version = "0.8.3", features = ["small_rng", "getrandom"], default-features = false }
 ironfish-frost = { path = "../ironfish-frost", default-features = false, features = ["dkg"]}
 
-
 panic-semihosting = { version = "0.6.0", features = ["exit"] }
+
 # panic-halt = "0.2.0"
 
 

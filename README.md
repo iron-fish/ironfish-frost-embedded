@@ -1,3 +1,32 @@
+# Ironfish Frost Embedded
+
+Command to run a specific file: 
+
+```bash
+$ cargo run --release --bin identity
+```
+
+## Location of the binaries
+
+`target/thumbv7em-none-eabihf/release`
+
+## Size of the binary
+
+```bash
+$ cargo install cargo-binutils
+```
+
+```bash
+$ cargo size --release --bin round3 
+```
+
+Example output: 
+
+```
+  text    data     bss     dec     hex filename
+  248776       0   12340  261116   3fbfc round3
+```
+
 # `cortex-m-quickstart`
 
 > A template for building applications for ARM Cortex-M microcontrollers

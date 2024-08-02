@@ -8,12 +8,11 @@ use ironfish_frost::participant::Secret;
 use ironfish_frost_embedded::{init_heap, HEAP};
 use rand::rngs::OsRng;
 
-
 #[entry]
 fn main() -> ! {
     init_heap();
-    let mut rng = OsRng;
-    let secret = Secret::random(&mut rng);
+    let rng = OsRng;
+    let secret = Secret::random(rng);
     let identity1 = secret.to_identity();
     hprintln!("Heap used {}", HEAP.used()).unwrap();
 
