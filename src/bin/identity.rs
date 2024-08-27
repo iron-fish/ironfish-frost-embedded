@@ -13,11 +13,14 @@ use rand::rngs::OsRng;
 fn main() -> ! {
     init_heap();
     let mut rng = OsRng;
-    let secret = Secret::random(&mut rng);
-    let identity1 = secret.to_identity();
+    for i in 0..4 {
+        let secret = Secret::random(&mut rng);
+        let identity = secret.to_identity();
+        hprintln!("let secret_bytes_{} = {:?};", i+1, secret.serialize()).unwrap();
+        hprintln!("secrets.push(Secret::deserialize_from(&secret_bytes_{}[..]).unwrap());", i+1).unwrap();
+        hprintln!("let identity_bytes_{} = {:?};", i+1, identity.serialize()).unwrap();
+        hprintln!("identities.push(Identity::deserialize_from(&identity_bytes_{}[..]).unwrap());", i+1).unwrap();
+    }
     hprintln!("Heap used {}", HEAP.used()).unwrap();
-
-    hprintln!("secret {:?}", secret.serialize()).unwrap();
-    hprintln!("identity {:?}", identity1.serialize()).unwrap();
     panic!("End of main");
 }
