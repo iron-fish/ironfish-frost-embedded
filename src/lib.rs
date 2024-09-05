@@ -1,15 +1,14 @@
 #![no_std]
 
+use core::mem::MaybeUninit;
 use cortex_m::peripheral::SYST;
 use embedded_alloc::LlffHeap as Heap;
 use getrandom::Error;
 use seed::SEED;
-use core::mem::MaybeUninit;
 
 pub mod seed;
 
 static mut SEED_VAR: u32 = SEED;
-
 
 use getrandom::register_custom_getrandom;
 
@@ -44,7 +43,8 @@ register_custom_getrandom!(custom_getrandom);
 pub static HEAP: Heap = Heap::empty();
 
 pub fn init_heap() {
-    const HEAP_SIZE: usize = 12300;
+    // const HEAP_SIZE: usize = 12300;
+    const HEAP_SIZE: usize = 24600;
     static mut HEAP_MEM: [MaybeUninit<u8>; HEAP_SIZE] = [MaybeUninit::uninit(); HEAP_SIZE];
     unsafe { HEAP.init(HEAP_MEM.as_ptr() as usize, HEAP_SIZE) }
 }
