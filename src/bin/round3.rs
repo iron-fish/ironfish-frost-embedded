@@ -293,6 +293,7 @@ fn main() -> ! {
         ],
     )
     .unwrap();
+    hprintln!("MAX Heap used {}", HEAP.max_used()).unwrap();
     hprintln!("Heap used {}", HEAP.used()).unwrap();
     hprintln!("key_package {:?}", key_package.serialize().unwrap()).unwrap();
     hprintln!("public_key_package {:?}", public_key_package.serialize()).unwrap();
