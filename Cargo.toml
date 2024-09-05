@@ -7,7 +7,7 @@ version = "0.1.0"
 
 [dependencies]
 # embedded-alloc = { git = "https://github.com/rust-embedded/embedded-alloc.git", rev = "4f472dc" }
-embedded-alloc = { git = "https://github.com/iron-fish/embedded-alloc.git", rev = "ac02201f6cb8ad50cf55527a56db1eb14b0deebc" }
+embedded-alloc = { git = "https://github.com/iron-fish/embedded-alloc.git", rev = "896d06692817766336be968358aba8cd4b28b85b" }
 hex = { version = "0.4", default-features = false, features = ["alloc"] }
 
 cortex-m-rt = "0.6.10"
